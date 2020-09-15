@@ -1,0 +1,36 @@
+mat-toolbar {
+    background-color: #BA6DB1;
+}
+
+mat-toolbar h1 {
+    color: #FFF;
+    font-weight: bold;
+    width: 110px;
+    text-align: left;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+mat-toolbar mat-icon {
+    color: #FFF;
+}
+
+mat-toolbar a {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+
+/**TEXT CONTENT***/
+
+.text-content {
+    font-size: 14px;
+    line-height: 1.4px;
+    color: #999999;
+    text-align: left;
+    padding: 16px 0px 8px 16px;
+}

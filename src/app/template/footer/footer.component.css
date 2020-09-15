@@ -1,0 +1,17 @@
+footer {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+}
+
+footer button {
+    background-color: #BA6DB1;
+    float: right;
+    margin: 10px;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}
