@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lollita-app"
+    }
+  },
+  "defaultProject": "lollita-app",
+  "cli": {
+    "analytics": false
+  }
 }
