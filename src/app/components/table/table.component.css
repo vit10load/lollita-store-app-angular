@@ -1,0 +1,19 @@
+.full-width-table {
+    width: 100%;
+    height: 50%;
+    overflow: scroll !important;
+}
+
+.full-width-table a {
+    background-color: #BA6DB1;
+    width: 26px !important;
+    height: 26px !important;
+}
+
+.full-width-table a i {
+    margin-top: -30px;
+}
+
+.material-icons {
+    font-size: inherit !important;
+}
