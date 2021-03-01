@@ -1,0 +1,43 @@
+
+<!--
+	cep	cpf	data_nascimento	email	endereco	nome	numero	telefone
+-->
+<form class="container-form">
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Nome</mat-label>
+		<input matInput placeholder="Nome do cliente">
+		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+	</mat-form-field>
+
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Telefone</mat-label>
+		<input matInput placeholder="Telefone">
+		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+	</mat-form-field>
+	
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Endereço</mat-label>
+		<input matInput placeholder="Endereço">
+		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+	</mat-form-field>
+	
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Nasceu em?</mat-label>
+		<input matInput [matDatepicker]="picker">
+		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+		<mat-datepicker #picker></mat-datepicker>
+	</mat-form-field>
+	
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Email</mat-label>
+		<input matInput placeholder="email">
+		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+	</mat-form-field>
+	
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>CPF</mat-label>
+		<input matInput placeholder="CPF">
+		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+	</mat-form-field>
+	<button mat-raised-button color="accent">SALVAR</button>
+</form>

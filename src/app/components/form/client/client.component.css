@@ -1,0 +1,15 @@
+.container-form {
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mat-form-field {
+	width: 60%;
+}
+
+.container-form button {
+	width: 60%;
+	background-color: #BA6DB1;
+}
