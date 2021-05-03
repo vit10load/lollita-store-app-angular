@@ -20,10 +20,18 @@ body {
 	font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.mat-paginator-container {
+.mat-paginator-container {	
 	justify-content: center !important;
 }
 
 .mat-input-element {
 	caret-color: #BA6DB1 !important;
+}
+
+mat-form-field.login {
+	width: 100% !important;
+}
+
+.mat-card {
+	box-shadow: none !important;
 }

@@ -20,6 +20,16 @@ import {MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-fi
 import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
+import { ErrorDialogComponent } from './error-dialog/errordialog.component';
+import { ErrorDialogService } from './error-dialog/errordialog.service';
+import { LoginService } from '../services/login.service';
+import { LoginComponent } from './components/login/login.component';
+import { MatCardModule } from "@angular/material/card";
+
 
 
 
@@ -30,7 +40,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 		HeaderComponent,
 		TableComponent,
 		FooterComponent,
-		ClientComponent
+		ClientComponent,
+		ErrorDialogComponent,
+		LoginComponent
 	],
 	imports: [
 		BrowserModule,
@@ -49,7 +61,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 		MatIconModule,
 		MatInputModule,
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		MatDialogModule,
+		HttpClientModule,
+		MatCardModule
 		
 	],
 	exports: [
@@ -63,8 +78,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 	],
 	providers: [
 		MatDatepickerModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		ErrorDialogService,
+		LoginService,
+		{provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true}
 	],
+	entryComponents: [ErrorDialogComponent],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,13 @@
+mat-card {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	padding-top: 40%;
+}
+
+button.entrar {
+	background-color: #BA6DB1;
+	color: #fff;
+}
+
