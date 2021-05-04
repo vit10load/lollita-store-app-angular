@@ -1,1 +1,29 @@
-<p>dashboard</p>
+<mat-grid-list cols="4" rowHeight="80px">
+	<mat-grid-tile
+		[colspan]="4"
+		[rowspan]="4"
+		[style.background]="">
+		<div style="display: block;">
+			<canvas baseChart 
+			  [datasets]="barChartData"
+			  [labels]="barChartLabels"
+			  [options]="barChartOptions"
+			  [plugins]="barChartPlugins"
+			  [legend]="barChartLegend"
+			  [chartType]="barChartType">
+			</canvas>
+		  </div>
+	</mat-grid-tile>
+	<mat-grid-tile
+		[colspan]="2"
+		[rowspan]="1"
+		[style.background]="" class="take">
+	  1340
+	</mat-grid-tile>
+	<mat-grid-tile
+		[colspan]="2"
+		[rowspan]="1"
+		[style.background]="" class="sale">
+	  4250
+	</mat-grid-tile>
+  </mat-grid-list>

@@ -32,8 +32,9 @@ import { MatCardModule } from "@angular/material/card";
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';	
 import { LayoutModule } from '@angular/cdk/layout';	
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -73,7 +74,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 		MatCardModule,
 		MatGridListModule,
 		MatMenuModule,
-		LayoutModule
+		LayoutModule,
+		ChartsModule
 		
 	],
 	exports: [
