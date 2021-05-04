@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
 
 @Component({
@@ -9,25 +9,31 @@ import { LoginService } from '../../../services/login.service';
 export class LoginComponent implements OnInit {
 
 	hide = true;
-	login: LoginService;
+
+	@Input()
 	mail: string = '';
+	@Input()
 	pass: string = '';
+
 	data: Object;
 
 	constructor(private loginService: LoginService) {
-		this.login = loginService;
+
 	}
 
 	ngOnInit(): void {
 	}
 
 	attemptLogin(): void {
+
 		this.data = {
-			email: "vitoro580@gmail.com",
-			senha: "1212444"
+			email: this.mail,
+			senha: this.pass
 		};
 
-		this.login.isAuthenticated(this.data);
+		this.loginService.login(this.data).subscribe(response => {
+			console.log(response);
+		});
 	}
 
 }

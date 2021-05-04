@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
 import {
 	HttpInterceptor,
 	HttpRequest,
@@ -15,7 +17,7 @@ import { ErrorDialogService } from '../error-dialog/errordialog.service';
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
 
-	constructor(public errorDialogService: ErrorDialogService) {
+	constructor(public errorDialogService: ErrorDialogService, public route: Router) {
 		
 	}
 
@@ -36,8 +38,15 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
 		return next.handle(request).pipe(
 			map((event: HttpEvent<any>) => {
-				if (event instanceof HttpResponse && !event.headers.get("Authorization") === null) {
+				if (event instanceof HttpResponse) {
+					
 					localStorage.setItem("token",event.headers.get("Authorization"));
+					
+					console.log("Bearer inserido");
+
+					if (localStorage.getItem("token") != null) {
+						this.route.navigate(['home']);
+					}
 				}
 
 				return event;

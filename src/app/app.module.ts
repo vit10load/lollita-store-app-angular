@@ -29,6 +29,11 @@ import { ErrorDialogService } from './error-dialog/errordialog.service';
 import { LoginService } from '../services/login.service';
 import { LoginComponent } from './components/login/login.component';
 import { MatCardModule } from "@angular/material/card";
+import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';	
 
 
 
@@ -42,7 +47,8 @@ import { MatCardModule } from "@angular/material/card";
 		FooterComponent,
 		ClientComponent,
 		ErrorDialogComponent,
-		LoginComponent
+		LoginComponent,
+		DashboardComponent
 	],
 	imports: [
 		BrowserModule,
@@ -64,7 +70,10 @@ import { MatCardModule } from "@angular/material/card";
 		MatNativeDateModule,
 		MatDialogModule,
 		HttpClientModule,
-		MatCardModule
+		MatCardModule,
+		MatGridListModule,
+		MatMenuModule,
+		LayoutModule
 		
 	],
 	exports: [
@@ -81,7 +90,9 @@ import { MatCardModule } from "@angular/material/card";
 		MatNativeDateModule,
 		ErrorDialogService,
 		LoginService,
-		{provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true}
+		JwtHelperService,
+		{provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true},
+		{provide: JWT_OPTIONS, useValue: JWT_OPTIONS}
 	],
 	entryComponents: [ErrorDialogComponent],
 	bootstrap: [AppComponent]
