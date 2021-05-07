@@ -6,8 +6,32 @@ mat-card {
 	padding-top: 40%;
 }
 
+mat-card mat-card-header mat-icon {
+	font-size: 70px;
+	width: auto !important;
+	height: auto !important;
+}
+
+mat-card mat-card-content mat-form-field {
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
 button.entrar {
-	background-color: #BA6DB1;
+	width: 100%;
+	height: 60px;
+	background-color: #3f51b5;
 	color: #fff;
+}
+
+a {
+	width: 100%;
+	height: 60px;
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+.forgot {
+	color: #000;
 }
 

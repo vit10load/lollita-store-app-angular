@@ -1,14 +1,44 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
+	<button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
 	<mat-icon>menu</mat-icon>
-	<h1>Lollita Store</h1>
+	</button>
+	<span>Lolita Store</span>
 	<span class="example-spacer"></span>
 	<a mat-icon-button class="example-icon search-icon" aria-label="Example icon search">
 		<mat-icon>search</mat-icon>
 	</a>
-	<a mat-icon-button class="example-icon more-vert-icon" aria-label="Example icon more_vert">
+	<a mat-icon-button class="example-icon more-vert-icon" aria-label="Example icon more_vert" [matMenuTriggerFor]="menu">
 		<mat-icon>more_vert</mat-icon>
 	</a>
 </mat-toolbar>
-<div class="text-content">
-	<span></span>
-</div>
+<mat-menu #menu="matMenu">
+	<button mat-menu-item>Perfil</button>
+	<button [disabled]="thirdLinkEnabled" (click)="logOut()" mat-menu-item>Sair</button>
+</mat-menu>
+<mat-drawer-container class="example-container">
+	<mat-drawer #drawer [mode]="'side'">
+		<div class="example-button-container">
+			<a routerLink="/home" mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon">
+			  <mat-icon>dashboard</mat-icon>
+			</a>
+		 </div>
+		<div class="example-button-container">
+			<button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon">
+			  <mat-icon>face</mat-icon>
+			</button>
+		 </div>
+		<div class="example-button-container">
+			<button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+			  <mat-icon>add_circle</mat-icon>
+			</button>
+		  </div>
+		  <div class="example-button-container">
+			<button mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
+			  <mat-icon>shopping_cart</mat-icon>
+			</button>
+		  </div>
+	</mat-drawer>
+	<mat-drawer-content>
+		<router-outlet></router-outlet>
+	</mat-drawer-content>
+</mat-drawer-container>

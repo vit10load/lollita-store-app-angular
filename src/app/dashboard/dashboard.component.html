@@ -1,29 +1,28 @@
-<mat-grid-list cols="4" rowHeight="80px">
-	<mat-grid-tile
-		[colspan]="4"
-		[rowspan]="4"
-		[style.background]="">
-		<div style="display: block;">
-			<canvas baseChart 
-			  [datasets]="barChartData"
-			  [labels]="barChartLabels"
-			  [options]="barChartOptions"
-			  [plugins]="barChartPlugins"
-			  [legend]="barChartLegend"
-			  [chartType]="barChartType">
-			</canvas>
-		  </div>
-	</mat-grid-tile>
-	<mat-grid-tile
-		[colspan]="2"
-		[rowspan]="1"
-		[style.background]="" class="take">
-	  1340
-	</mat-grid-tile>
-	<mat-grid-tile
-		[colspan]="2"
-		[rowspan]="1"
-		[style.background]="" class="sale">
-	  4250
-	</mat-grid-tile>
-  </mat-grid-list>
+
+<div style="display: block;">
+	<canvas baseChart 
+		[datasets]="barChartData"
+		[labels]="barChartLabels"
+		[options]="barChartOptions"
+		[plugins]="barChartPlugins"
+		[legend]="barChartLegend"
+		[chartType]="barChartType">
+	</canvas>
+</div>
+
+<mat-card class="example-card">
+	<mat-card-header>
+	  <mat-card-title>Croped</mat-card-title>
+	  <mat-card-subtitle>Tamanho P</mat-card-subtitle>
+	</mat-card-header>
+	<img mat-card-image src="https://cloud-lolita.s3.us-east.cloud-object-storage.appdomain.cloud/cp2.jpg" alt="Photo croped">
+	<mat-card-content>
+	  <p>
+		R$35,90
+	  </p>
+	</mat-card-content>
+	<mat-card-actions>
+	  <button mat-raised-button color="primary">Adicionar</button>
+	  <button mat-raised-button collor="warn">Cancelar</button>
+	</mat-card-actions>
+</mat-card>

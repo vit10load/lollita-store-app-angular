@@ -35,3 +35,20 @@ mat-grid-tile.take {
 	-webkit-text-stroke: medium;
 	color: #ff6f9c;
 }
+
+mat-card-header {
+	width: 100%;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-around;
+}
+
+.example-card img {
+	width: 100%;
+	height: auto;
+}
+
+.example-card mat-card-content {
+	font-size: 35px;
+	font-weight: bold;
+}

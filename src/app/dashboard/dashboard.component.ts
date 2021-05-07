@@ -20,7 +20,7 @@ export class DashboardComponent {
 
 	public barChartLabels: Label[] = ['JAN','FEB','MAR','ABR','MAI','JUN','JULL'];
 	
-	public barChartType: ChartType = 'bar';
+	public barChartType: ChartType = 'line';
 	public barChartLegend = true;
 	public barChartPlugins = [];
 

@@ -35,6 +35,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';	
 import { LayoutModule } from '@angular/cdk/layout';	
 import { ChartsModule } from 'ng2-charts';
+import { ToastrModule } from 'ngx-toastr';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -75,7 +77,9 @@ import { ChartsModule } from 'ng2-charts';
 		MatGridListModule,
 		MatMenuModule,
 		LayoutModule,
-		ChartsModule
+		ChartsModule,
+		ToastrModule.forRoot(),
+		MatSelectModule
 		
 	],
 	exports: [
@@ -85,7 +89,8 @@ import { ChartsModule } from 'ng2-charts';
 		ReactiveFormsModule,
 		MatButtonModule,
 		MatInputModule,
-		MatFormFieldModule
+		MatFormFieldModule,
+		MatSelectModule
 	],
 	providers: [
 		MatDatepickerModule,

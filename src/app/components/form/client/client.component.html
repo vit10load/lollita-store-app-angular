@@ -3,41 +3,57 @@
 	cep	cpf	data_nascimento	email	endereco	nome	numero	telefone
 -->
 <form class="container-form">
+
+	<h2>Cadastrar um novo cliente</h2>
+
 	<mat-form-field appearance="legacy" color="accent">
 		<mat-label>Nome</mat-label>
-		<input matInput placeholder="Nome do cliente">
-		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+		<input matInput placeholder="Informe seu nome">
 	</mat-form-field>
 
 	<mat-form-field appearance="legacy" color="accent">
-		<mat-label>Telefone</mat-label>
-		<input matInput placeholder="Telefone">
-		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-	</mat-form-field>
-	
-	<mat-form-field appearance="legacy" color="accent">
-		<mat-label>Endereço</mat-label>
-		<input matInput placeholder="Endereço">
-		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-	</mat-form-field>
-	
-	<mat-form-field appearance="legacy" color="accent">
-		<mat-label>Nasceu em?</mat-label>
-		<input matInput [matDatepicker]="picker">
-		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-		<mat-datepicker #picker></mat-datepicker>
-	</mat-form-field>
-	
-	<mat-form-field appearance="legacy" color="accent">
 		<mat-label>Email</mat-label>
 		<input matInput placeholder="email">
-		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 	</mat-form-field>
-	
+
 	<mat-form-field appearance="legacy" color="accent">
 		<mat-label>CPF</mat-label>
 		<input matInput placeholder="CPF">
-		<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 	</mat-form-field>
-	<button mat-raised-button color="accent">SALVAR</button>
+
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Logradouro</mat-label>
+		<input matInput placeholder="Logradouro">
+	</mat-form-field>
+
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Numero</mat-label>
+		<input matInput placeholder="Numero?">
+	</mat-form-field>
+
+	<mat-form-field appearance="fill" color="accent">
+		<mat-label>Tipo de cliente</mat-label>
+		<mat-select>
+			<mat-option *ngFor="let per of persons" [value]="per.value">
+			{{per.viewValue}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+	
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Senha</mat-label>
+		<input matInput placeholder="senha">
+	</mat-form-field>
+
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Confirmar Senha</mat-label>
+		<input matInput placeholder="confirmar senha">
+	</mat-form-field>
+
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Telefone para contato</mat-label>
+		<input matInput placeholder="Telefone">
+	</mat-form-field>
+
+	<button mat-raised-button color="primary">SALVAR</button>
 </form>
