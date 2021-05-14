@@ -43,6 +43,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
 import {MatSelectModule} from '@angular/material/select';
 import { CategoryComponent } from './components/form/category/category.component';
+import { ProductFormComponent } from './components/product/product-form/product-form.component';
 
 
 
@@ -58,7 +59,8 @@ import { CategoryComponent } from './components/form/category/category.component
 		ErrorDialogComponent,
 		LoginComponent,
 		DashboardComponent,
-		CategoryComponent
+		CategoryComponent,
+		ProductFormComponent
 	],
 	imports: [
 		BrowserModule,

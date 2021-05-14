@@ -64,8 +64,9 @@ export class CategoryComponent implements OnInit {
 	}
 
 	removeItem(shoes: string) {
+
 		if (this.typesOfShoes.includes(shoes)) {
-			
+
 			const indexShoe = this.typesOfShoes.indexOf(shoes);
 
 			this.categoryService.delete(this.catIdent[indexShoe]).subscribe(resp => {
@@ -76,6 +77,7 @@ export class CategoryComponent implements OnInit {
 					this.toast.error("Erro ao deletar categoria","Categoria");
 				}
 			})
+
 			this.typesOfShoes.splice(indexShoe,1);
 		}
 	}

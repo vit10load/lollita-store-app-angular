@@ -1,0 +1,30 @@
+<form class="container-form">
+
+	<h2>Cadastro de produtos</h2>
+
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Nome do produto</mat-label>
+		<input matInput placeholder="Informe o nome">
+	</mat-form-field>
+
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Categorias</mat-label>
+		<mat-select>
+			<mat-option *ngFor="let item of categoryName" [value]="item">
+				{{item}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+	<mat-form-field appearance="legacy" color="accent">
+		<mat-label>Preço</mat-label>
+		<input matInput placeholder="Preço">
+	</mat-form-field>
+
+	<!--
+		para upload testar https://www.npmjs.com/package/angular-file-uploader
+	-->
+
+	<button mat-raised-button color="primary">SALVAR</button>
+</form>
+
