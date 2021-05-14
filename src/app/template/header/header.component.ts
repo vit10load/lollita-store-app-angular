@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
 
 	logOut(): void {
 		this.loginService.logout();
+		localStorage.removeItem('Perfil');
 		this.router.navigate(['']);
 		this.toast.info("Voçê saiu do sistema!","Lolita");
 		this.thirdLinkEnabled = false;
@@ -38,7 +39,6 @@ export class HeaderComponent implements OnInit {
 
 	enableButtonLogout(router: Router, location: Location): void {
 		router.events.subscribe((val) => {
-			console.log(location.path());
 			if ((location.path() != '')) {
 				this.thirdLinkEnabled = false;
 			}else {

@@ -28,4 +28,11 @@ export class LoginService {
 		localStorage.removeItem('token');
 	}
 
+	isAuthorized(allowedRoles: string[]): boolean {
+		
+		const perfil = localStorage.getItem('Perfil');
+
+		return allowedRoles.includes(perfil);
+	}
+
 }

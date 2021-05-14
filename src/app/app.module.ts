@@ -16,17 +16,22 @@ import { MatButtonModule } from '@angular/material/button'
 import { FooterComponent } from './template/footer/footer.component';
 import { ClientComponent } from './components/form/client/client.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';
+
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
 import { ErrorDialogComponent } from './error-dialog/errordialog.component';
 import { ErrorDialogService } from './error-dialog/errordialog.service';
+
 import { LoginService } from '../services/login.service';
+import { CategoryService } from '../services/category.service';
+
 import { LoginComponent } from './components/login/login.component';
 import { MatCardModule } from "@angular/material/card";
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
@@ -37,6 +42,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
 import {MatSelectModule} from '@angular/material/select';
+import { CategoryComponent } from './components/form/category/category.component';
 
 
 
@@ -51,7 +57,8 @@ import {MatSelectModule} from '@angular/material/select';
 		ClientComponent,
 		ErrorDialogComponent,
 		LoginComponent,
-		DashboardComponent
+		DashboardComponent,
+		CategoryComponent
 	],
 	imports: [
 		BrowserModule,
@@ -79,7 +86,8 @@ import {MatSelectModule} from '@angular/material/select';
 		LayoutModule,
 		ChartsModule,
 		ToastrModule.forRoot(),
-		MatSelectModule
+		MatSelectModule,
+		MatListModule
 		
 	],
 	exports: [
@@ -98,6 +106,7 @@ import {MatSelectModule} from '@angular/material/select';
 		ErrorDialogService,
 		LoginService,
 		JwtHelperService,
+		CategoryService,
 		{provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true},
 		{provide: JWT_OPTIONS, useValue: JWT_OPTIONS}
 	],

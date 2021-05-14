@@ -27,7 +27,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
 
 		if (token) {
-			request = request.clone({ headers: request.headers.set('Authorization',token) });
+			request = request.clone({ headers: request.headers.set('Authorization',"Bearer "+token) });
 		}
 
 		if (!request.headers.has('Content-Type')) {
@@ -38,17 +38,16 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
 		return next.handle(request).pipe(
 			map((event: HttpEvent<any>) => {
-				if (event instanceof HttpResponse) {
-					
-					localStorage.setItem("token",event.headers.get("Authorization"));
-					
-					console.log("Bearer inserido");
 
-					if (localStorage.getItem("token") != null) {
+				if (event instanceof HttpResponse) {
+
+					if (!(event.headers.get("Authorization") == undefined) && event.headers.get("Authorization").includes("Bearer ")) {
+						localStorage.setItem("token",event.headers.get("Authorization").replace("Bearer ",""));
+						localStorage.setItem("Perfil",event.headers.get("Perfil"));
 						this.route.navigate(['home']);
 					}
+					
 				}
-
 				return event;
 
 			}),catchError((error: HttpErrorResponse) => {
@@ -56,7 +55,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 				let data = {};
 
 				data = {
-					reason: (error.error !== '') ? error.error.message : '',
+					reason: (error.error !== '') ? error.message : '',
 					status: error.status
 				};
 

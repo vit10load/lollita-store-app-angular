@@ -221,3 +221,45 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	  width: 25em;
 	}
   }
+
+.mat-menu-item, mat-icon.prod {
+	color: #FFF !important;
+}
+
+.mat-menu-panel {
+  background: none !important;
+}
+
+.mat-list-option:not(.mat-list-single-selected-option):not(.mat-list-item-disabled):hover, .mat-nav-list .mat-list-item:not(.mat-list-item-disabled):hover, .mat-action-list .mat-list-item:not(.mat-list-item-disabled):hover {
+	background: #3f51b5 !important;
+	color: #fff !important;
+}
+
+.mat-pseudo-checkbox {
+	width: 32px !important;
+	height: 32px !important;
+}
+
+.mat-form-field {
+	font-size: 20px;
+}
+
+.mat-pseudo-checkbox-checked::after {
+	top: 5.4px !important;
+	left: 7px !important;
+}
+
+.container .colorChange {
+	background-color: #ff4081 !important;
+}
+
+mat-list-option .mat-list-text {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center !important;
+}
+
+.mat-list-text button {
+	position: absolute !important;
+	right: 60px !important;
+}

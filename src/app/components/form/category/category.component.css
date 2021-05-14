@@ -1,0 +1,32 @@
+mat-selection-list {
+	display: flex;
+	flex-direction: column;
+	text-align: justify;
+}
+
+h2 {
+	margin: auto;
+}
+
+.form-container {
+	display: grid;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.form-container button {
+	height: 60px;
+	line-height: 60px;
+}
+
+.container {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.container mat-list-option {
+	background-color: #ffcbdb;
+	background-color: #ffcbdb;
+	padding-bottom: 10px;
+	font-weight: bold;
+}

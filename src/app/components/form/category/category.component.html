@@ -1,0 +1,18 @@
+
+<div class="form-container">
+	<h2>Cadastro de categorias</h2>
+	<mat-form-field>
+		<mat-label>
+			<input matInput type="text" [(ngModel)]="name" placeholder="Informe o nome para categoria de roupas"/>
+		</mat-label>
+	</mat-form-field>
+	<button (click)="save()" mat-raised-button color="primary">Salvar</button>
+</div>
+<div class="container">
+	<mat-selection-list #shoes>
+		<mat-list-option  *ngFor="let shoe of typesOfShoes" [value]="shoe">
+		  {{shoe}}
+		  <button color="warn" mat-raised-button><mat-icon (click)="removeItem(shoes.selectedOptions.selected[0]?.value)">delete_forever</mat-icon></button>
+		</mat-list-option>
+	</mat-selection-list>
+</div>

@@ -15,6 +15,10 @@
 	<button mat-menu-item>Perfil</button>
 	<button [disabled]="thirdLinkEnabled" (click)="logOut()" mat-menu-item>Sair</button>
 </mat-menu>
+<mat-menu class="menu-store" #menuProd="matMenu">
+	<a routerLink="category/add" mat-menu-item><mat-icon class="prod">store</mat-icon>Categorias</a>
+	<a mat-menu-item><mat-icon class="prod">production_quantity_limits</mat-icon>Produtos</a>
+</mat-menu>
 <mat-drawer-container class="example-container">
 	<mat-drawer #drawer [mode]="'side'">
 		<div class="example-button-container">
@@ -28,7 +32,7 @@
 			</button>
 		 </div>
 		<div class="example-button-container">
-			<button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+			<button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" [matMenuTriggerFor]="menuProd">
 			  <mat-icon>add_circle</mat-icon>
 			</button>
 		  </div>

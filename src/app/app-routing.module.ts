@@ -5,6 +5,7 @@ import { LoginComponent } from "./components/login/login.component";
 import {TableComponent} from './components/table/table.component';
 import { AuthGuard } from './auth/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CategoryComponent } from './components/form/category/category.component';
 
 const routes: Routes = [
 	{
@@ -24,11 +25,22 @@ const routes: Routes = [
 	{
 		path: "home",
 		component: DashboardComponent,
-		canActivate: [AuthGuard]
+		canActivate: [AuthGuard],
+		data: {
+			allowedRoles: ['ROLE_ADMIN','ROLE_CLIENTE']
+		}
 	},
 	{
 		path: "register",
 		component: ClientComponent
+	},
+	{
+		path: "category/add",
+		component: CategoryComponent,
+		canActivate: [AuthGuard],
+		data: {
+			allowedRoles: ['ROLE_ADMIN']
+		}
 	}
 ];
 

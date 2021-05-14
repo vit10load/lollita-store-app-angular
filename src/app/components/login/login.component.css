@@ -3,7 +3,7 @@ mat-card {
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	padding-top: 40%;
+	padding-top: 20%;
 }
 
 mat-card mat-card-header mat-icon {
