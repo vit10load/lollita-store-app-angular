@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse, HttpHeaders } from '@angular/common/http';
 import  { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
@@ -7,6 +7,13 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class LoginService {
 
 	constructor(private http: HttpClient, public jwtHelper: JwtHelperService) { }
+
+	httpOptions = {
+		headers: new HttpHeaders({
+			'Content-Type': 'application/json',
+			'accept': 'application/json'
+		})
+	};
 
 	isNotAuthenticated(): Boolean {
 		
@@ -21,7 +28,7 @@ export class LoginService {
 	}
 
 	login(data) {
-		return this.http.post('http://localhost:8080/login', data);
+		return this.http.post('http://localhost:8080/login', data, this.httpOptions);
 	}
 
 	logout(): void {

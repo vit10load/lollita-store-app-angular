@@ -6,6 +6,7 @@ import {TableComponent} from './components/table/table.component';
 import { AuthGuard } from './auth/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CategoryComponent } from './components/form/category/category.component';
+import { ProductFormComponent } from './components/product/product-form/product-form.component';
 
 const routes: Routes = [
 	{
@@ -37,6 +38,14 @@ const routes: Routes = [
 	{
 		path: "category/add",
 		component: CategoryComponent,
+		canActivate: [AuthGuard],
+		data: {
+			allowedRoles: ['ROLE_ADMIN']
+		}
+	},
+	{
+		path: "product/add",
+		component: ProductFormComponent,
 		canActivate: [AuthGuard],
 		data: {
 			allowedRoles: ['ROLE_ADMIN']

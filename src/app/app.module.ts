@@ -43,6 +43,15 @@ import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
 import {MatSelectModule} from '@angular/material/select';
 import { CategoryComponent } from './components/form/category/category.component';
+import { ProductFormComponent } from './components/product/product-form/product-form.component';
+
+import { MatFileUploadModule } from 'angular-material-fileupload';
+
+import localePtBr from '@angular/common/locales/pt';
+
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePtBr);
 
 
 
@@ -58,7 +67,8 @@ import { CategoryComponent } from './components/form/category/category.component
 		ErrorDialogComponent,
 		LoginComponent,
 		DashboardComponent,
-		CategoryComponent
+		CategoryComponent,
+		ProductFormComponent
 	],
 	imports: [
 		BrowserModule,
@@ -87,7 +97,8 @@ import { CategoryComponent } from './components/form/category/category.component
 		ChartsModule,
 		ToastrModule.forRoot(),
 		MatSelectModule,
-		MatListModule
+		MatListModule,
+		MatFileUploadModule
 		
 	],
 	exports: [

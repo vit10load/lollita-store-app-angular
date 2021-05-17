@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "~10.0.6",
     "@angular/router": "~10.0.6",
     "@auth0/angular-jwt": "^5.0.2",
+    "angular-file-uploader": "^7.0.3",
+    "angular-material-fileupload": "^3.0.2",
     "chart.js": "^2.9.3",
     "ng2-charts": "^2.3.0",
     "ngx-toastr": "^13.2.1",

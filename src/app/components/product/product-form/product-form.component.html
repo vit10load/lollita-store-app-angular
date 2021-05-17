@@ -1,0 +1,43 @@
+<form class="container-form">
+  <h2>Cadastro de produtos</h2>
+
+  <mat-form-field appearance="legacy" color="accent">
+	<mat-label>Nome do produto</mat-label>
+	<input matInput placeholder="Informe o nome" [(ngModel)]="nome" name="nome"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="legacy" color="accent">
+	<mat-label>Categorias</mat-label>
+	<mat-select [(ngModel)]="cat" name="cat">
+	  <mat-option *ngFor="let item of categoryName" [value]="item">
+		{{ item }}
+	  </mat-option>
+	</mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="legacy" color="accent">
+	<mat-label>Preço</mat-label>
+	<input matInput type="number" placeholder="preco" [(ngModel)]="price" name="price" min="0"/>
+  </mat-form-field>
+
+  <label for="singleFile">Upload file</label>
+  <input id="singleFile" type="file" [fileUploadInputFor]="fileUploadQueue">
+  <br />
+
+  <mat-file-upload-queue
+	#fileUploadQueue
+	[fileAlias]="'file'"
+	[httpUrl]="'http://localhost:8080/clientes/picture'"
+  >
+	<mat-file-upload
+	[file]="file"
+	[id]="i"
+	*ngFor="let file of fileUploadQueue.files; let i = index"
+	>
+	</mat-file-upload>
+
+	<button (click)="getTextFromImage(fileUploadQueue.files)" mat-raised-button color="warn">Criar URL da foto</button>
+  </mat-file-upload-queue>
+
+  <button (click)="create()" mat-raised-button color="primary">Salvar</button>
+</form>
