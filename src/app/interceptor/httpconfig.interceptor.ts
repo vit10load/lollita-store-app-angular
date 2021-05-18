@@ -54,12 +54,12 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 					};
 				}else {
 					data = {
-						reason: (error.error !== '') ? error.message : '',
-						status: error.status
+						reason: (error.error !== '') ? error.error.message : '',
+						status: error.error.status,
+						customError: (error.error.errors[0].message !== '') ? error.error.errors[0].message : ''
 					};
 				}
 				
-
 				this.errorDialogService.openDialog(data);
 
 				return throwError(error);

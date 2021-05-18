@@ -20,9 +20,10 @@
 	<input matInput type="number" placeholder="preco" [(ngModel)]="price" name="price" min="0"/>
   </mat-form-field>
 
-  <label for="singleFile">Upload file</label>
-  <input id="singleFile" type="file" [fileUploadInputFor]="fileUploadQueue">
-  <br />
+  <span class="btn btn-file">
+    <i class="material-icons left">cloud_upload</i>
+  	<input #uploadFile type="file" [fileUploadInputFor]="fileUploadQueue">
+ </span>
 
   <mat-file-upload-queue
 	#fileUploadQueue
@@ -36,7 +37,7 @@
 	>
 	</mat-file-upload>
 
-	<button (click)="getTextFromImage(fileUploadQueue.files)" mat-raised-button color="warn">Criar URL da foto</button>
+	<a (click)="getTextFromImage(fileUploadQueue.files)" mat-raised-button color="warn">Criar URL da foto</a>
   </mat-file-upload-queue>
 
   <button (click)="create()" mat-raised-button color="primary">Salvar</button>

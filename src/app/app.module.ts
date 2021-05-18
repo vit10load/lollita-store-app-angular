@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,13 +44,9 @@ import { ToastrModule } from 'ngx-toastr';
 import {MatSelectModule} from '@angular/material/select';
 import { CategoryComponent } from './components/form/category/category.component';
 import { ProductFormComponent } from './components/product/product-form/product-form.component';
-
 import { MatFileUploadModule } from 'angular-material-fileupload';
-
 import localePtBr from '@angular/common/locales/pt';
-
 import { registerLocaleData } from '@angular/common';
-
 registerLocaleData(localePtBr);
 
 
@@ -119,7 +115,8 @@ registerLocaleData(localePtBr);
 		JwtHelperService,
 		CategoryService,
 		{provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true},
-		{provide: JWT_OPTIONS, useValue: JWT_OPTIONS}
+		{provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+		{provide: LOCALE_ID, useValue: 'pt-BR'}
 	],
 	entryComponents: [ErrorDialogComponent],
 	bootstrap: [AppComponent]

@@ -6,12 +6,11 @@ import {
 import { ProductService } from '../../../../services/product.service';
 import { CategoryService } from '../../../../services/category.service';
 import  { ToastrService } from 'ngx-toastr';
-import { formatCurrency } from '@angular/common';
 
 interface Product {
 	id?: number
 	nome: string
-	preco: string
+	preco: number
 	url: string
 	categoriaId?: number
 }
@@ -61,19 +60,17 @@ export class ProductFormComponent implements OnInit {
 
 	getTextFromImage(file: File[]) {
 		if (file[0] === undefined) {
-			this.toast.error("Favor selecionar uma imagem...");
+			this.toast.error("Favor selecionar uma imagem para upload...");
 			return;
 		}else {
 			let fileName = file[0].name;
-			console.log("entrou...");
-
+			this.toast.success("Ok, URL foi criada.")
 			this.source = "https://cloud-lolita.s3.us-east.cloud-object-storage.appdomain.cloud/"+fileName;
 		}
 	
 	}
 
 	checkSourceUrlFromImage(): boolean {
-		
 		return (this.source.includes('https') ? true : false);
 	}
 
@@ -89,22 +86,26 @@ export class ProductFormComponent implements OnInit {
 	create() {
 		
 		let index = this.getIndexCategoryByName(this.cat);
-		// {style: 'currency', currency: 'BRL'}).format(this.price)
-
+	
 		if (this.checkSourceUrlFromImage()) {
 				this.object = {
 					nome: this.nome,
-					preco: formatCurrency(this.price,'pt-BR','BRL'),
+					preco: this.price,
 					url: this.source,
 					categoriaId: index
 				}
 				console.log(this.object);
-				/*this.productService.create(this.object).subscribe(res => {
+				this.productService.create(this.object).subscribe(res => {
 					console.log(res);
-				});*/
+					
+					if (!res) {
+						this.toast.error(" Erro ao salvar","Erro ao processar");
+					}
+					this.toast.success("Produto salvo","Mais 1 produto lolita");
+				});
 
 		}else {
-				this.toast.error("Crie a URL da imagem / verifique as informações","Erro ao processar");
+			this.toast.error(" Faça o upload e crie a URL da imagem / verifique as informações","Erro ao processar");
 		}
 	}
 }

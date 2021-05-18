@@ -25,8 +25,6 @@ export class AuthGuard implements CanActivate {
 			this.router.navigate([this.router.url]);
 			return false;
 		}
-
-		this.toast.success("Voçe tem acesso ao sistema!",":)");
 		return true;
 	}
 
