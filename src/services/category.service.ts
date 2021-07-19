@@ -10,9 +10,10 @@ interface Category {
 @Injectable({
 	providedIn: 'root'
 })
-export class CategoryService {
 
-	API = "http://localhost:8080/";
+export class CategoryService {
+	//https://backend-lolita.herokuapp.com/
+	API = "https://backend-lolita.herokuapp.com/";
 
 	httpOptions = {
 		headers: new HttpHeaders({

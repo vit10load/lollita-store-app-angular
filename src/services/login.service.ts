@@ -8,6 +8,9 @@ export class LoginService {
 
 	constructor(private http: HttpClient, public jwtHelper: JwtHelperService) { }
 
+	//https://backend-lolita.herokuapp.com
+	API = 'https://backend-lolita.herokuapp.com/';
+	
 	httpOptions = {
 		headers: new HttpHeaders({
 			'Content-Type': 'application/json',
@@ -28,7 +31,7 @@ export class LoginService {
 	}
 
 	login(data) {
-		return this.http.post('http://localhost:8080/login', data, this.httpOptions);
+		return this.http.post(this.API+'login', data, this.httpOptions);
 	}
 
 	logout(): void {

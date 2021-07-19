@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import {
 	HttpInterceptor,
@@ -17,7 +18,7 @@ import { ErrorDialogService } from '../error-dialog/errordialog.service';
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
 
-	constructor(public errorDialogService: ErrorDialogService, public route: Router) {
+	constructor(public errorDialogService: ErrorDialogService, public route: Router, private toast: ToastrService) {
 
 	}
 
@@ -26,8 +27,14 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 		const token: string = localStorage.getItem('token');
 
 		if (token) {
-			request = request.clone({ headers: request.headers.set('Authorization',"Bearer "+token) });
+			request = request.clone(
+					{ 
+						headers: request.headers.set('Authorization',"Bearer "+token),  	
+					}
+				);
 		}
+
+		request = request.clone({headers: request.headers.set('Access-Control-Allow-Origin', 'origin')})
 
 		return next.handle(request).pipe(
 			map((event: HttpEvent<any>) => {
@@ -52,15 +59,20 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 						reason: 'Sucesso!',
 						status: error.status
 					};
+					this.toast.error("Tudo certo!!!!", error.statusText);
 				}else {
 					data = {
 						reason: (error.error !== '') ? error.error.message : '',
 						status: error.error.status,
-						customError: (error.error.errors[0].message !== '') ? error.error.errors[0].message : ''
 					};
+
+					if (error.error.errors != undefined) {
+						this.toast.error("Erro e parada inesperada!!!!", error.error.errors[0].message);
+					}else {
+						this.toast.error("Erro e parada inesperada!!!!");
+					}
+					
 				}
-				
-				this.errorDialogService.openDialog(data);
 
 				return throwError(error);
 			}));

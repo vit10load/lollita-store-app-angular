@@ -48,7 +48,13 @@ mat-card-header {
 	height: auto;
 }
 
+.example-card mat-card button a {
+	text-decoration: none;
+    color: white;
+}
+
 .example-card mat-card-content {
-	font-size: 35px;
+	font-size: 40px;
 	font-weight: bold;
+	font-family: 'Dancing Script', cursive !important;
 }

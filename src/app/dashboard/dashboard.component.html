@@ -1,28 +1,48 @@
-
-<div style="display: block;">
-	<canvas baseChart 
-		[datasets]="barChartData"
-		[labels]="barChartLabels"
-		[options]="barChartOptions"
-		[plugins]="barChartPlugins"
-		[legend]="barChartLegend"
-		[chartType]="barChartType">
-	</canvas>
+<div style="display: block">
+  <canvas
+    baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+  >
+  </canvas>
 </div>
 
-<mat-card class="example-card">
-	<mat-card-header>
-	  <mat-card-title>Croped</mat-card-title>
-	  <mat-card-subtitle>Tamanho P</mat-card-subtitle>
-	</mat-card-header>
-	<img mat-card-image src="https://cloud-lolita.s3.us-east.cloud-object-storage.appdomain.cloud/cp2.jpg" alt="Photo croped">
-	<mat-card-content>
-	  <p>
-		R$35,90
-	  </p>
-	</mat-card-content>
-	<mat-card-actions>
-	  <button mat-raised-button color="primary">Adicionar</button>
-	  <button mat-raised-button collor="warn">Cancelar</button>
-	</mat-card-actions>
-</mat-card>
+<mat-grid-list *ngIf="show; else elseBlock" cols="1" rowHeight="2:1">
+  <div *ngFor="let product of products" class="example-card" [value]="product">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ product.nome }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{ product.urlImage }}" alt="Photo" />
+      <mat-card-content>
+        <p>R$ {{ product.preco }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">
+          <a routerLink="/product/add">Adicionar</a>
+        </button>
+        <button mat-raised-button collor="warn">Remover</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</mat-grid-list>
+<ng-template #elseBlock>
+  <mat-grid-list cols="1" rowHeight="2:1">
+    <div class="example-card">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Ainda nao tem produtos</mat-card-title>
+        </mat-card-header>
+		<img mat-card-image src="https://cloud-lolita.s3.us-east.cloud-object-storage.appdomain.cloud/spin.gif" alt="Photo" />
+        <mat-card-content> 
+			Voçê vai arrasar! Bjos
+		</mat-card-content>
+        <mat-card-actions> </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-grid-list>
+</ng-template>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../../../services/login.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
 
 	data: Object;
 
-	constructor(private loginService: LoginService) {
+	constructor(private loginService: LoginService, private toast: ToastrService) {
 
 	}
 
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
 		this.loginService.login(this.data).subscribe(response => {
 			console.log(response);
 		});
+	}
+
+	contact(): void {
+		this.toast.warning("Administração!", "Fale diretamente com o administrador, por enquanto ainda nao temos servidor de email dedicado.");
 	}
 
 }

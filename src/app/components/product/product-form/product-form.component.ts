@@ -84,7 +84,6 @@ export class ProductFormComponent implements OnInit {
 	}
 
 	create() {
-		
 		let index = this.getIndexCategoryByName(this.cat);
 	
 		if (this.checkSourceUrlFromImage()) {
@@ -94,16 +93,12 @@ export class ProductFormComponent implements OnInit {
 					url: this.source,
 					categoriaId: index
 				}
-				console.log(this.object);
 				this.productService.create(this.object).subscribe(res => {
-					console.log(res);
-					
 					if (!res) {
 						this.toast.error(" Erro ao salvar","Erro ao processar");
 					}
 					this.toast.success("Produto salvo","Mais 1 produto lolita");
 				});
-
 		}else {
 			this.toast.error(" Faça o upload e crie a URL da imagem / verifique as informações","Erro ao processar");
 		}
