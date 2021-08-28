@@ -1,44 +1,44 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { LoginService } from '../../../services/login.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
+import {LoginService} from '../../../services/login.service';
 
 @Component({
-	selector: 'app-login',
-	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-	hide = true;
+  hide = true;
 
-	@Input()
-	mail: string = '';
-	@Input()
-	pass: string = '';
+  @Input()
+  mail: string = '';
+  @Input()
+  pass: string = '';
 
-	data: Object;
+  data: Object;
 
-	constructor(private loginService: LoginService, private toast: ToastrService) {
+  constructor(private loginService: LoginService, private toast: ToastrService) {
 
-	}
+  }
 
-	ngOnInit(): void {
-	}
+  ngOnInit(): void {
+  }
 
-	attemptLogin(): void {
+  attemptLogin(): void {
 
-		this.data = {
-			email: this.mail,
-			senha: this.pass
-		};
+    this.data = {
+      email: this.mail,
+      senha: this.pass
+    };
 
-		this.loginService.login(this.data).subscribe(response => {
-			console.log(response);
-		});
-	}
+    this.loginService.login(this.data).subscribe(response => {
+      console.log(response);
+    });
+  }
 
-	contact(): void {
-		this.toast.warning("Administração!", "Fale diretamente com o administrador, por enquanto ainda nao temos servidor de email dedicado.");
-	}
+  contact(): void {
+    this.toast.warning('Administração!', 'Fale diretamente com o administrador, por enquanto ainda nao temos servidor de email dedicado.');
+  }
 
 }
